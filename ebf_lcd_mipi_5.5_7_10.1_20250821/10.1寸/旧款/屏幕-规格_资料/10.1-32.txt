@@ -1,0 +1,229 @@
+
+Delay(5);SSD2828_WritePackageSize(4);SPI_WriteData(0xFF);SPI_WriteData(0x98);SPI_WriteData(0x81);SPI_WriteData(0x03);
+
+//GIP_1
+
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x01);SPI_WriteData(0x00);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x02);SPI_WriteData(0x00);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x03);SPI_WriteData(0x53);        //STVA=STV2_4
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x04);SPI_WriteData(0xD3);        //STVB=STV1_3
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x05);SPI_WriteData(0x00);       
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x06);SPI_WriteData(0x0D);        //STVA_Rise
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x07);SPI_WriteData(0x08);        //STVB_Rise
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x08);SPI_WriteData(0x00);       
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x09);SPI_WriteData(0x00);        
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x0a);SPI_WriteData(0x00);        
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x0b);SPI_WriteData(0x00);        
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x0c);SPI_WriteData(0x00);        
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x0d);SPI_WriteData(0x00);       
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x0e);SPI_WriteData(0x00);        
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x0f);SPI_WriteData(0x28 );       //CLW1(ALR) Duty=45%
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x10);SPI_WriteData(0x28);        //CLW2(ARR) Duty=45%
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x11);SPI_WriteData(0x00);           
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x12);SPI_WriteData(0x00);        
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x13);SPI_WriteData(0x00);        //CLWX(ATF)
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x14);SPI_WriteData(0x00);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x15);SPI_WriteData(0x00);      
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x16);SPI_WriteData(0x00);       
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x17);SPI_WriteData(0x00);       
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x18);SPI_WriteData(0x00);        
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x19);SPI_WriteData(0x00);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x1a);SPI_WriteData(0x00);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x1b);SPI_WriteData(0x00);   
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x1c);SPI_WriteData(0x00);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x1d);SPI_WriteData(0x00);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x1e);SPI_WriteData(0x40);        //CLKA 40??? C0???(X8?sCLKB)
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x1f);SPI_WriteData(0x80);        
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x20);SPI_WriteData(0x06);        //CLKA_Rise
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x21);SPI_WriteData(0x01);        //CLKA_Fall
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x22);SPI_WriteData(0x00);        
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x23);SPI_WriteData(0x00);       
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x24);SPI_WriteData(0x00);        
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x25);SPI_WriteData(0x00);       
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x26);SPI_WriteData(0x00);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x27);SPI_WriteData(0x00);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x28);SPI_WriteData(0x33);       //CLK Phase
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x29);SPI_WriteData(0x33);       //CLK overlap
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x2a);SPI_WriteData(0x00);  
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x2b);SPI_WriteData(0x00);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x2c);SPI_WriteData(0x00);      
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x2d);SPI_WriteData(0x00);      
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x2e);SPI_WriteData(0x00);              
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x2f);SPI_WriteData(0x00);   
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x30);SPI_WriteData(0x00);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x31);SPI_WriteData(0x00);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x32);SPI_WriteData(0x00);     
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x33);SPI_WriteData(0x00);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x34);SPI_WriteData(0x03);     //VDD1&2 overlap 0us      
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x35);SPI_WriteData(0x00);              
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x36);SPI_WriteData(0x00);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x37);SPI_WriteData(0x00);       
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x38);SPI_WriteData(0x96);     //VDD1&2 toggle 2.5sec	
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x39);SPI_WriteData(0x00);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x3a);SPI_WriteData(0x00); 
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x3b);SPI_WriteData(0x00);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x3c);SPI_WriteData(0x00);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x3d);SPI_WriteData(0x00);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x3e);SPI_WriteData(0x00);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x3f);SPI_WriteData(0x00);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x40);SPI_WriteData(0x00);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x41);SPI_WriteData(0x00);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x42);SPI_WriteData(0x00);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x43);SPI_WriteData(0x00);  
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x44);SPI_WriteData(0x00);
+
+
+//GIP_2
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x50);SPI_WriteData(0x00);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x51);SPI_WriteData(0x23);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x52);SPI_WriteData(0x45);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x53);SPI_WriteData(0x67);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x54);SPI_WriteData(0x89);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x55);SPI_WriteData(0xAB);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x56);SPI_WriteData(0x01);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x57);SPI_WriteData(0x23);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x58);SPI_WriteData(0x45);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x59);SPI_WriteData(0x67);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x5a);SPI_WriteData(0x89);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x5b);SPI_WriteData(0xAB);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x5c);SPI_WriteData(0xCD);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x5d);SPI_WriteData(0xEF);
+
+//GIP_3
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x5e);SPI_WriteData(0x00);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x5f);SPI_WriteData(0x08);     //FW_CGOUT_L[1]    STV3
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x60);SPI_WriteData(0x08);     //FW_CGOUT_L[2]    STV3
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x61);SPI_WriteData(0x06);     //FW_CGOUT_L[3]    STV4
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x62);SPI_WriteData(0x06);     //FW_CGOUT_L[4]    STV4
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x63);SPI_WriteData(0x01);     //FW_CGOUT_L[5]    VDS
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x64);SPI_WriteData(0x01);     //FW_CGOUT_L[6]    VDS
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x65);SPI_WriteData(0x00);    //FW_CGOUT_L[7]    VSD
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x66);SPI_WriteData(0x00);     //FW_CGOUT_L[8]    VSD
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x67);SPI_WriteData(0x02);     //FW_CGOUT_L[9]    
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x68);SPI_WriteData(0x15);     //FW_CGOUT_L[10]   VDD2
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x69);SPI_WriteData(0x15);     //FW_CGOUT_L[11]   VDD2 
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x6a);SPI_WriteData(0x14);     //FW_CGOUT_L[12]   VDD1
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x6b);SPI_WriteData(0x14);     //FW_CGOUT_L[13]   VDD1
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x6c);SPI_WriteData(0x0D);     //FW_CGOUT_L[14]   CLK8   
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x6d);SPI_WriteData(0x0D);     //FW_CGOUT_L[15]   CLK8
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x6e);SPI_WriteData(0x0C);     //FW_CGOUT_L[16]   CLK6    
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x6f);SPI_WriteData(0x0C);     //FW_CGOUT_L[17]   CLK6
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x70);SPI_WriteData(0x0F);     //FW_CGOUT_L[18]   CLK4
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x71);SPI_WriteData(0x0F);     //FW_CGOUT_L[19]   CLK4
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x72);SPI_WriteData(0x0E);    //FW_CGOUT_L[20]   CLK2
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x73);SPI_WriteData(0x0E);     //FW_CGOUT_L[21]   CLK2
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x74);SPI_WriteData(0x02);     //FW_CGOUT_L[22]   VGL
+  
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x75);SPI_WriteData(0x08);     //BW_CGOUT_L[1]   
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x76);SPI_WriteData(0x08);     //BW_CGOUT_L[2]    
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x77);SPI_WriteData(0x06);     //BW_CGOUT_L[3]    
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x78);SPI_WriteData(0x06);     //BW_CGOUT_L[4]    
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x79);SPI_WriteData(0x01);     //BW_CGOUT_L[5]     
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x7a);SPI_WriteData(0x01);     //BW_CGOUT_L[6]     
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x7b);SPI_WriteData(0x00);     //BW_CGOUT_L[7]   
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x7c);SPI_WriteData(0x00);     //BW_CGOUT_L[8]    
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x7d);SPI_WriteData(0x02);    //BW_CGOUT_L[9]      
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x7e);SPI_WriteData(0x15);     //BW_CGOUT_L[10]
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x7f);SPI_WriteData(0x15);     //BW_CGOUT_L[11]    
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x80);SPI_WriteData(0x14);     //BW_CGOUT_L[12]   
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x81);SPI_WriteData(0x14);     //BW_CGOUT_L[13] 
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x82);SPI_WriteData(0x0D);     //BW_CGOUT_L[14]      
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x83);SPI_WriteData(0x0D);     //BW_CGOUT_L[15]   
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x84);SPI_WriteData(0x0C);     //BW_CGOUT_L[16]      
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x85);SPI_WriteData(0x0C);     //BW_CGOUT_L[17]
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x86);SPI_WriteData(0x0F);     //BW_CGOUT_L[18]
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x87);SPI_WriteData(0x0F);     //BW_CGOUT_L[19]
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x88);SPI_WriteData(0x0E);     //BW_CGOUT_L[20]   
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x89);SPI_WriteData(0x0E);     //BW_CGOUT_L[21]   
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x8A);SPI_WriteData(0x02);     //BW_CGOUT_L[22]   
+
+
+
+//CMD_Page 4
+Delay(5);SSD2828_WritePackageSize(4);SPI_WriteData(0xFF);SPI_WriteData(0x98);SPI_WriteData(0x81);SPI_WriteData(0x04);
+
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x6E);SPI_WriteData(0x2B);           //VGH 15V
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x6F);SPI_WriteData(0x37);           //reg vcl + pumping ratio VGH=3x VGL=-3x
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x3A);SPI_WriteData(0x24);           //POWER SAVING
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x8D);SPI_WriteData(0x1A);           //VGL -11V
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x87);SPI_WriteData(0xBA);           //ESD
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0xB2);SPI_WriteData(0xD1);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x88);SPI_WriteData(0x0B);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x38);SPI_WriteData(0x01);      
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x39);SPI_WriteData(0x00);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0xB5);SPI_WriteData(0x02);           //gamma bias
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x31);SPI_WriteData(0x25);           //source bias
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x3B);SPI_WriteData(0x98);  			
+			
+//CMD_Page 1
+Delay(5);SSD2828_WritePackageSize(4);SPI_WriteData(0xFF);SPI_WriteData(0x98);SPI_WriteData(0x81);SPI_WriteData(0x01);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x22);SPI_WriteData(0x0A);          //BGR, SS
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x31);SPI_WriteData(0x00);          //Column inversion
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x53);SPI_WriteData(0x3D);          //VCOM1
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x55);SPI_WriteData(0x3D);          //VCOM2 
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x50);SPI_WriteData(0xB5);          //VREG1OUT 4.8V
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x51);SPI_WriteData(0xAD);          //VREG2OUT -4.8V
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x60);SPI_WriteData(0x06);          //SDT
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x62);SPI_WriteData(0x20);
+
+
+//============Gamma START=============
+
+//Pos Register
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0xA0);SPI_WriteData(0x00);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0xA1);SPI_WriteData(0x21);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0xA2);SPI_WriteData(0x35);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0xA3);SPI_WriteData(0x19);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0xA4);SPI_WriteData(0x1E);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0xA5);SPI_WriteData(0x33);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0xA6);SPI_WriteData(0x27);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0xA7);SPI_WriteData(0x26);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0xA8);SPI_WriteData(0xAF);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0xA9);SPI_WriteData(0x1B);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0xAA);SPI_WriteData(0x27);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0xAB);SPI_WriteData(0x8D);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0xAC);SPI_WriteData(0x1A);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0xAD);SPI_WriteData(0x1B);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0xAE);SPI_WriteData(0x50);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0xAF);SPI_WriteData(0x26);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0xB0);SPI_WriteData(0x2B);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0xB1);SPI_WriteData(0x54);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0xB2);SPI_WriteData(0x5E);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0xB3);SPI_WriteData(0x23);
+
+
+
+//Neg Register
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0xC0);SPI_WriteData(0x00);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0xC1);SPI_WriteData(0x21);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0xC2);SPI_WriteData(0x35);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0xC3);SPI_WriteData(0x19);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0xC4);SPI_WriteData(0x1E);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0xC5);SPI_WriteData(0x33);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0xC6);SPI_WriteData(0x27);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0xC7);SPI_WriteData(0x26);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0xC8);SPI_WriteData(0xAF);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0xC9);SPI_WriteData(0x1B);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0xCA);SPI_WriteData(0x27);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0xCB);SPI_WriteData(0x8D);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0xCC);SPI_WriteData(0x1A);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0xCD);SPI_WriteData(0x1B);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0xCE);SPI_WriteData(0x50);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0xCF);SPI_WriteData(0x26);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0xD0);SPI_WriteData(0x2B);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0xD1);SPI_WriteData(0x54);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0xD2);SPI_WriteData(0x5E);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0xD3);SPI_WriteData(0x23);
+
+
+
+//============ Gamma END===========			
+			
+
+//CMD_Page 0			
+Delay(5);SSD2828_WritePackageSize(4);SPI_WriteData(0xFF);SPI_WriteData(0x98);SPI_WriteData(0x81);SPI_WriteData(0x00);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x11);SPI_WriteData(0x00);  
+Delay(120);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x29);SPI_WriteData(0x00);
+Delay(5);SSD2828_WritePackageSize(2);SPI_WriteData(0x35);SPI_WriteData(0x00);
+Delay(120);

@@ -1,0 +1,17 @@
+MIPI CLK Speed:340Mbps(170MHZ)
+H back porch:160
+H front porch:160 
+H pulse width:10
+V back porch:23
+V front porch:12
+V pulse width:1
+
+MIPI commandÈçÏÂ:
+
+regw(0x80,0xAC);
+regw(0x81,0xB8);
+regw(0x82,0x09);
+regw(0x83,0x78);
+regw(0x84,0x7F);
+regw(0x85,0xBB);
+regw(0x86,0x70);

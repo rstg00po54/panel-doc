@@ -1,0 +1,28 @@
+EK79007+BOE 7.0 IPS(97W_G8.5) MIPI 3-lane…¢”µ£º
+
+VDD= 1.8~2.0V
+RESET=VDD;
+STBYB=VDD;
+AVDD= 9.6V
+VCOM= 3.2V(TPY.)
+VGH= 18V
+VGL= -7V
+
+
+MIPI CLK Speed:340Mbps(170MHZ)
+H back porch:160
+H front porch:160 
+H pulse width:10
+V back porch:23
+V front porch:12
+V pulse width:1
+
+MIPI commandÈçÏÂ:
+regw(0xB2,0x20);
+regw(0x80,0xAC);
+regw(0x81,0xB8);
+regw(0x82,0x09);
+regw(0x83,0x78);
+regw(0x84,0x7F);
+regw(0x85,0xBB);
+regw(0x86,0x70);
