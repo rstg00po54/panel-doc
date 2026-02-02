@@ -1,0 +1,82 @@
+// LS055R1SX04 MIPI LCD 最简初始化序列
+void LS055R1SX04_Init(void)
+{
+    // 1️⃣ Soft Reset
+    lcd_dcs_write(0x01);      // Software Reset
+    HAL_Delay(5);
+
+    // 2️⃣ Sleep Out
+    lcd_dcs_write(0x11);      // Sleep Out
+    HAL_Delay(120);
+
+    // 3️⃣ Interface / Lane / Format 设置
+    lcd_dcs_write_data(0xB0, 0x00);     // Page 0
+    lcd_dcs_write_data(0xD6, 0x01);     // Example internal setting
+    lcd_dcs_write_data(0xB3, 0x18);     // HS Mode + Clock Config
+
+    lcd_dcs_write_data(0x51, 0xFF);     // Brightness Max
+    lcd_dcs_write_data(0x53, 0x0C);     // CTRL Display
+    lcd_dcs_write_data(0x35, 0x00);     // TE (Tearing Effect) off
+    HAL_Delay(20);
+
+    // 4️⃣ Page 3 配置（时序 / PLL）
+    lcd_dcs_write_data(0xB0, 0x03);     // Page 3
+    HAL_Delay(20);
+    lcd_dcs_write(0x29);                // Display ON
+    HAL_Delay(20);
+
+    // 5️⃣ Optional PLL / internal registers
+    lcd_dcs_write_data(0xDE, 0x03);
+    lcd_dcs_write_data(0xB8, 0x00);
+    lcd_dcs_write_data(0xB7, 0x030B);   // HS mode, PLL config
+    HAL_Delay(20);
+
+    // 6️⃣ Set Brightness / TE / etc.
+    lcd_dcs_write_data(0x51, 0xFF);
+    lcd_dcs_write_data(0x53, 0x0C);
+    HAL_Delay(20);
+}
+
+// Helper functions (示意)
+void lcd_dcs_write(uint8_t cmd)
+{
+    // 发送单字节 DCS 命令
+    // 这里实现你的 MCU / MIPI DSI 写寄存器逻辑
+}
+
+void lcd_dcs_write_data(uint8_t cmd, uint8_t data)
+{
+    // 发送 DCS 命令 + 1 字节数据
+    // 这里实现你的 MCU / MIPI DSI 写寄存器逻辑
+}
+
+
+panel-init-sequence = <
+    // Generic Commands
+    05 00 02 00 B0 00      // _ssd_write_Generic(DEV, 0xB0, 0x00)
+    05 00 02 00 D6 01      // _ssd_write_Generic(DEV, 0xD6, 0x01)
+    05 00 02 00 B3 18      // _ssd_write_Generic(DEV, 0xB3, 0x18)
+
+    // DCS Commands
+    15 00 02 51 FF 00      // _ssd_write_DCS(DEV, 0x51, 0xFF, 2)
+    15 00 02 53 0C 00      // _ssd_write_DCS(DEV, 0x53, 0x0C, 2)
+    15 00 02 35 00 00      // _ssd_write_DCS(DEV, 0x35, 0x00, 2)
+
+    78 14                  // HAL_Delay(20ms)
+
+    // More Generic / DCS
+    05 00 02 00 B0 03      // _ssd_write_Generic(DEV, 0xB0, 0x03)
+    78 14                  // HAL_Delay(20ms)
+
+    15 00 02 29 00 00      // _ssd_write_DCS(DEV, 0x29, 0x00, 1)
+    78 14                  // HAL_Delay(20ms)
+    15 00 02 11 00 00      // _ssd_write_DCS(DEV, 0x11, 0x00, 1)
+    78 14                  // HAL_Delay(20ms)
+
+    // Data Registers
+    05 00 02 DE 03 00      // _ssd_write_data(DEV, 0xDE, 0x0003)
+    05 00 02 B8 00 00      // _ssd_write_data(DEV, 0xB8, 0x0000)
+    05 00 02 B7 03 0B      // _ssd_write_data(DEV, 0xB7, 0x030B)
+
+    78 14                  // HAL_Delay(20ms)
+>;

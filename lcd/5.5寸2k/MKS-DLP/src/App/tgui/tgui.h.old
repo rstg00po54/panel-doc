@@ -1,0 +1,249 @@
+#ifndef __tgui_H
+#define __tgui_H
+
+
+#include "includes.h"
+#include "main.h"
+#include "lcd_ui.h"
+#include "fatfs.h"
+#include "touch.h"
+#include "languages.h"
+
+
+
+typedef void (*paintfunc)(void *tguiobj, void* param);
+typedef void (*processfunc)(void *tguiobj, void* param);
+typedef void (*pressfunc)(void *tguiobj, void* param);
+
+
+// Method of background repainting for buttons and texts
+typedef enum
+{
+	BGP_NONE = 0,		// backgrount not paints
+	BGP_SCREEN = 1,		// background paint from parent background screen
+	BGP_FILL = 2,		// backgriunt filled with background color
+	BGP_IMAGE = 3,		// backgriunt paint from self image file
+} BGPAINT_TYPE;
+
+
+// Text align in buttons and texts
+typedef enum
+{
+	// horizontal
+	HTA_LEFT = 0,
+	HTA_CENTER = 1,
+	HTA_RIGHT = 2,
+} TEXT_ALIGN_H;
+
+
+typedef enum
+{
+	// vertical
+	VTA_TOP = 0,
+	VTA_CENTER = 1,
+	VTA_BOTTOM = 2,
+} TEXT_ALIGN_V;
+
+
+typedef struct
+{
+	TEXT_ALIGN_H	textalign_h:4;
+	TEXT_ALIGN_V	textalign_v:4;
+} TG_TEXTOPTIONS;
+
+
+typedef enum
+{
+	BTNA_GOCHILDSCR = 0xFFFFFF00,
+	BTNA_GOPREVSCR = 0xFFFFFF01,
+	
+} TG_BTNACTIONS;
+
+
+typedef struct
+{
+	// screens properties
+	uint16_t			scrnametextcolor;	// color for name text in header of screen
+	uint16_t			scrtextcolor;
+	uint16_t			scrbackcolor;
+	LCDUI_FONT_TYPE		scrfont;
+	LCDUI_FONT_TYPE		scrnamefont;		// fonr for name text in header of screen
+	
+	// buttons properties
+	uint16_t			btntextcolor_en;
+	uint16_t			btntextcolor_press;
+	uint16_t			btntextcolor_dis;
+	uint16_t			btntextcolor_act;
+	uint16_t			btnbackcolor_en;
+	uint16_t			btnbackcolor_press;
+	uint16_t			btnbackcolor_dis;
+	uint16_t			btnbackcolor_act;
+	LCDUI_FONT_TYPE		btnfont;
+	
+	char				*imagesdir;
+} TG_CONFIG;
+
+
+
+typedef struct
+{
+	uint16_t	x;
+	uint16_t	y;
+} TG_POINT;
+
+
+
+typedef struct
+{
+	uint16_t	left;
+	uint16_t	top;
+	uint16_t	right;
+	uint16_t	bottom;
+} TG_RECT;
+
+
+
+typedef struct
+{
+	void				*addparameter;
+	
+	uint8_t				button_id;
+	
+
+	int8_t				group_id;		// for swithed options buttons, >0 - single selection from group (select), <0 - multiple selection (switch)
+	
+	TG_RECT				position;
+	
+	void				*parentscreen;
+	void				*childscreen;
+
+	char				*bgimagename_en;
+	char				*bgimagename_press;
+	char				*bgimagename_dis;
+	char				*bgimagename_act;	// for swithed options buttons
+
+	char				*text;
+	TG_RECT			textposition;
+	LCDUI_FONT_TYPE		font;
+	uint16_t			textcolor_en;
+	uint16_t			textcolor_press;
+	uint16_t			textcolor_dis;
+	uint16_t			textcolor_active;	// for swithed options buttons
+	uint16_t			backcolor_en;
+	uint16_t			backcolor_press;
+	uint16_t			backcolor_dis;
+	uint16_t			backcolor_act;	// for swithed options buttons
+	
+	struct {
+		uint8_t				active:1;		// for swithed options buttons
+		uint8_t				needrepaint:1;
+		uint8_t				pressed:1;
+		uint8_t				disabled:1;
+		uint8_t				repaintonpress:1;		// repaint or not when pressed - for indicate pressed state
+		BGPAINT_TYPE		bgpaint:2;
+	} options;
+	
+	TG_TEXTOPTIONS	textoptions;
+
+	struct {
+		paintfunc		_call_paint;	// repaint button
+		pressfunc		_call_press;	// touch events handling
+		processfunc		_call_process;	// periodical processing (for example text value refresh)
+	} funcs;
+} TG_BUTTON;
+
+
+
+typedef struct
+{
+	char				*bgimagename;
+	
+	void				*prevscreen;
+	
+	char				*name;
+	TG_RECT			nameposition;
+	TG_TEXTOPTIONS	nameoptions;
+	
+	uint8_t				btns_count;
+	TG_BUTTON			*buttons;
+	
+	LCDUI_FONT_TYPE		font;
+	LCDUI_FONT_TYPE		namefont;
+	uint16_t			textcolor;
+	uint16_t			nametextcolor;
+	uint16_t			backcolor;
+
+	struct {
+		paintfunc		_callpaint;	// repaint screen
+		processfunc		_process;	// screen process handling (check for changes, touch pressed, etc)
+	} funcs;
+} TG_SCREEN;
+
+
+
+#define	FNAME_LOGO				(char*)"logo.cimg"
+#define	FNAME_BKGR_MAIN			(char*)"scr_main.cimg"
+#define	FNAME_BKGR_SERVICE		(char*)"scr_service.cimg"
+#define	FNAME_BKGR_LANGUAGE		(char*)"scr_language.cimg"
+#define	FNAME_BKGR_INFO			(char*)"scr_info.cimg"
+#define	FNAME_BKGR_MOVEZ		(char*)"scr_movez.cimg"
+
+
+
+#define UIDBUFF_SIZE		4096
+extern uint8_t 			tguiDBuff[UIDBUFF_SIZE];
+#define UIFBUFF_SIZE		512
+extern uint8_t 			tguiFBuff[UIFBUFF_SIZE];
+
+extern FIL				tguiFile PLACE_TO_CCMRAM;
+extern TCHAR			tfname[512] PLACE_TO_CCMRAM;
+
+
+extern TG_CONFIG		tguiDefaultConfig;
+
+
+
+#define		TG_BTN_CNT_SCREEN_MAIN			4
+#define		TG_TIMEBUTTON_ID				1
+extern TG_BUTTON		tguiScrMainButtons[TG_BTN_CNT_SCREEN_MAIN];
+extern TG_SCREEN		tguiScreenMain;
+
+#define		TG_BTN_CNT_SCREEN_SERVICE		3
+extern TG_BUTTON		tguiScrServiceButtons[TG_BTN_CNT_SCREEN_SERVICE];
+extern TG_SCREEN		tguiScreenService;
+
+#define		TG_BTN_CNT_SCREEN_LANGUAGE		LNG_LANGS_COUNT + 1
+extern TG_BUTTON		tguiScrLanguageButtons[TG_BTN_CNT_SCREEN_LANGUAGE];
+extern TG_SCREEN		tguiScreenLanguage;
+
+#define		TG_BTN_CNT_SCREEN_INFO			7
+extern TG_BUTTON		tguiScrInfoButtons[TG_BTN_CNT_SCREEN_INFO];
+extern TG_SCREEN		tguiScreenInfo;
+
+#define		TG_BTN_CNT_SCREEN_MOVEZ			10
+extern TG_BUTTON		tguiScrMovezButtons[TG_BTN_CNT_SCREEN_MOVEZ];
+extern TG_SCREEN		tguiScreenMovez;
+
+
+
+
+extern TG_SCREEN		*tguiActiveScreen;
+
+
+uint8_t		TGUI_PointInRect(TOUCH_POINT *pt, TG_RECT *rc);
+
+
+void		TGUI_Init();
+void		TGUI_ChangeLanguage(uint8_t lang);
+void		TGUI_DrawLogo();
+// Forced repaint current screen
+void		TGUI_ForceRepaint();
+// Current screen periodical process handling (check for changes, touch pressed, etc)
+void		TGUI_Process();
+
+
+
+
+
+#endif /*__tgui_H */
+
